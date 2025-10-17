@@ -1,0 +1,16 @@
+services:
+  semantic-search:
+    build: .
+    container_name: semantic-search
+    ports:
+      - "7860:7860"
+    environment:
+      - HF_HOME=/app/hf_cache
+      - MODEL_NAME=all-MiniLM-L6-v2
+      - EMBEDDINGS_FILE=app/data/wiki_embeddings.faiss
+      - METADATA_FILE=app/data/wiki_metadata.npy
+      - TOP_K=5
+    volumes:
+      - ./app/data:/app/app/data
+      - ./hf_cache:/app/hf_cache
+    restart: unless-stopped

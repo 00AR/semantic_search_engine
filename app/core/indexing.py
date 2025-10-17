@@ -20,8 +20,10 @@ class SemanticIndex:
     def load_dataset(self):
         logger.info("Logging Wikipedia dataset...")
         try:
+            os.environ["HF_HOME"] = "/app/hf_cache"
+            os.makedirs("/app/hf_cache", exist_ok=True)
             # data = load_dataset("AMead10/lvl_5_vital_wikipedia_articles", split="train[:1]")
-            data = load_dataset("AMead10/lvl_5_vital_wikipedia_articles", split="train[:3000]")
+            data = load_dataset("AMead10/lvl_5_vital_wikipedia_articles", split="train[:3]")
             self.titles = data["title"]
             self.urls = data["url"]
             combined_texts = [

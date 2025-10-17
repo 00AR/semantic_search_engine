@@ -1,0 +1,6 @@
+fastapi[standard]
+faiss-cpu
+sentence-transformers
+datasets
+numpy
+scikit-learn
