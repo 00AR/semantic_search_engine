@@ -23,8 +23,7 @@ class SemanticIndex:
             cache_dir = os.path.join(os.getcwd(), "hf_cache")
             os.environ["HF_HOME"] = cache_dir
             os.makedirs(cache_dir, exist_ok=True)
-            # data = load_dataset("AMead10/lvl_5_vital_wikipedia_articles", split="train[:1]")
-            data = load_dataset("AMead10/lvl_5_vital_wikipedia_articles", split="train[:3]")
+            data = load_dataset("AMead10/lvl_5_vital_wikipedia_articles", split="train")
             self.titles = data["title"]
             self.urls = data["url"]
             combined_texts = [
